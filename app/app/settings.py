@@ -37,13 +37,12 @@ SUPABASE_BUCKET = os.getenv('SUPABASE_BUCKET')
 DEBUG = DEBUG = os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = [
-    os.getenv("ALLOWED_HOST", "127.0.0.1")
+    "try-docker-with-django-production.up.railway.app"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://try-docker-with-django-production.up.railway.app"
 ]
-
 
 # Application definition
 
