@@ -36,7 +36,10 @@ SUPABASE_BUCKET = os.getenv('SUPABASE_BUCKET')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
+ALLOWED_HOSTS = [
+    os.getenv("ALLOWED_HOST", "localhost"),
+]
+
 
 # Application definition
 
