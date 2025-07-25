@@ -1,11 +1,16 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
+<<<<<<< HEAD
 *.py[codz]
+=======
+*.py[cod]
+>>>>>>> feea703 ([new] First push project)
 *$py.class
 
 # C extensions
 *.so
 
+<<<<<<< HEAD
 # Distribution / packaging
 .Python
 build/
@@ -205,3 +210,62 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+=======
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.sqlite
+*.env
+*.DS_Store
+
+# Django migrations
+**/migrations/*.py
+**/migrations/*.pyc
+!**/migrations/__init__.py  # Keeps the folder, ignores others
+
+# Static files
+/static/
+/staticfiles/
+/media/
+
+# If using collectstatic output
+/static_cdn/
+/media_cdn/
+
+# Local dev environment
+.env
+.env.*
+.vscode/
+.idea/
+*.code-workspace
+.devcontainer
+
+# Virtual environments
+env/
+venv/
+ENV/
+venv.bak/
+pip-wheel-metadata/
+
+# Pytest
+.pytest_cache/
+coverage.*
+htmlcov/
+
+# Docker-related (if using Docker)
+*.pid
+*.tgz
+.dockerignore
+Dockerfile
+docker-compose.yml
+__docker_cache__/
+
+# System files
+Thumbs.db
+ehthumbs.db
+>>>>>>> feea703 ([new] First push project)

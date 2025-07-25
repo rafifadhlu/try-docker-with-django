@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block placeContent %}
+{% include "navbar/navbar-auth.html" %}
+
+    <div class="container">
+        {% for name, link in path_exploded  %}
+        
+            <span><a href={% url link %}>{{ name }}</a></span>
+            {% if not forloop.last%}
+            <span>&raquo</span>
+            {% endif %}
+        
+        {% endfor %}
+
+        <h1>{{ pageTitle }}</h1>
+    </div>
+{% endblock placeContent %}

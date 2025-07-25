@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block placeContent %}
+{% include "navbar/navbar-auth.html" %}
+
+<div class="container">
+    <h2>Halo {{ user }} !</h2>
+    
+        <div class="mb-3">
+            <form action="" method="post" enctype="multipart/form-data" >
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="Submit" class="btn btn-primary">Upload</button>
+            </form>
+        
+        </div>
+
+</div>
+
+{% endblock placeContent %}

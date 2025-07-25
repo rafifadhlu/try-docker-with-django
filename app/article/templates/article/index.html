@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block placeContent %}
+{% include "navbar/navbar-auth.html" %}
+
+<div class="container">
+    <span><a href={% url "article:add" %}>add Article</a></span>
+    <h1>Tes Article Page</h1>
+</div>
+{% endblock placeContent %}

@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Testing User Authentication</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav position-absolute top-0 end-0 me-3">
+        <li class="nav-item my-2">
+          <a class="nav-link active" aria-current="page" href={% url 'index' %}>Home</a>
+        </li>
+        <li class="nav-item my-2">
+          <a class="nav-link border border-primary rounded bg-primary text-white" href={% url 'account:index' %}>Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
