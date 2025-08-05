@@ -9,10 +9,13 @@ pipeline {
         stage('Setup') {
             steps {
                 script {
-                    // Create a virtual environment and install dependencies
-                    sh "python3 -m venv ${VENV_DIR}"
-                    sh ". ${VENV_DIR}/bin/activate && ${VENV_DIR}/bin/pip install -r requirements.txt"
-                
+                    docker.image('python:3.10').inside {
+                        sh '''
+                            python3 -m venv venv
+                            source venv/bin/activate
+                            python --version
+                        '''
+                    }
                 }
             }
         }
