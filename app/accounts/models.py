@@ -17,5 +17,4 @@ class UserAva(models.Model):
             upload_media_to_supabase(file_data ,file_path_in_supabase)
             self.ava.name = file_path_in_supabase
 
-        super().save(self,*args, **kwargs)
-
+        super().save(*args, **kwargs)

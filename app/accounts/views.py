@@ -1,9 +1,13 @@
 from django.shortcuts import render,redirect
-from django.views.generic import TemplateView
+from django.views.generic.edit import CreateView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login,logout
-from .form import UploadAvaForm
+from django.urls import reverse
+
+from django.contrib.auth.models import User
+from .form import UploadAvaForm,RegisterUserForm
 from django.utils import timezone
+from .models import UserAva
 
 # Create your views here.
 
@@ -23,11 +27,10 @@ def LoginDefView(request):
 
         if user is not None:
             login(request, user)
+        else:
+            return redirect('account:register')
         
         return redirect('index')
-    
-
-
     return render(request, 'login/index.html', context)
 
 def LogoutView(request):
@@ -75,25 +78,26 @@ def UploadAvatar(request):
     return render(request,'account/profile.html',context)
 
 
-# class loginView(TemplateView):
-#     template_name = 'login/index.html'
-#     context = {
-#         'pageTitle': 'Login Page',
-#         'title': 'Login to Your Account',
-#         'message': 'Please enter your credentials to log in.'
-#     }
-
-#     def get(self, request):
-
-#         return self.render_to_response(self.context)
-
-class RegisterView(TemplateView):
+class RegisterView(CreateView):
+    model = User
     template_name = 'login/register.html'
-    context = {
-        'pageTitle': 'Register Page',
-        'title': 'Create a New Account',
-        'message': 'Fill in the form below to create a new account.'
-    }
-
-    def get(self, request):
-        return self.render_to_response(self.context)
+    form_class = RegisterUserForm
+    
+    def form_valid(self, form):
+        # Modify the user object before saving
+        user = form.save(commit=False)
+        user.is_active = True
+        user.set_password(form.cleaned_data['password'])
+        user.save()
+        return super().form_valid(form)
+    
+    def get_success_url(self):
+        return reverse('account:index')
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['pageTitle'] = 'Register Page'
+        context['title'] = 'Create a New Account'
+        context['message'] = 'Fill in the form below to create a new account.'
+        
+        return context
