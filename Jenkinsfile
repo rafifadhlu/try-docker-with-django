@@ -1,10 +1,5 @@
 pipeline {
-     agent {
-        docker {
-            image 'python:3.9'
-            args '-v /tmp:/tmp'   // optional
-        }
-    }
+     agent any
 
     environment {
         VENV_DIR = 'venv'
