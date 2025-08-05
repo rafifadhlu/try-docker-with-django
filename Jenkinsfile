@@ -4,15 +4,6 @@ pipeline{
     environment {
         VENV_DIR = 'venv'
     }
-
-    stages {
-        stage('Checkout') {
-            steps {
-                // Checkout the code from the repository
-                checkout scm
-            }
-        }
-
         stage('Setup') {
             steps {
                 script {
