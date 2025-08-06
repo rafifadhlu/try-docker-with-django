@@ -10,8 +10,10 @@ pipeline {
             steps {
                 script {
                     // Create a virtual environment and install dependencies
-                    sh "python3 -m venv ${VENV_DIR}"
-                    sh ". ${VENV_DIR}/bin/activate && cd app && pip install -r requirements.txt"
+                    // sh "python3 -m venv ${VENV_DIR}"
+                    // sh ". ${VENV_DIR}/bin/activate && cd app && pip install -r requirements.txt"
+                    echo 'Test running failed, skipping setup for demonstration purposes.'
+                    sh 'exit 1'
                 
                 }
             }
