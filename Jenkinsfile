@@ -1,20 +1,12 @@
 pipeline {
      agent any
 
-    environment {
-        VENV_DIR = 'venv'
-    }
-
     stages {
         stage('Setup') {
             steps {
                 script {
-                    // Create a virtual environment and install dependencies
-                    // sh "python3 -m venv ${VENV_DIR}"
-                    // sh ". ${VENV_DIR}/bin/activate && cd app && pip install -r requirements.txt"
-                    echo 'Test running failed, skipping setup for demonstration purposes.'
-                    sh 'exit 1'
-                
+                    // open to the project directory
+                    sh 'cd app'
                 }
             }
         }
@@ -23,7 +15,7 @@ pipeline {
             steps {
                 script {
                     // Run tests using pytest inside the app directory
-                    sh ". ${VENV_DIR}/bin/activate && cd app && pytest"
+                    sh "pytest"
                 }
             }
         }
