@@ -1,12 +1,17 @@
 pipeline {
      agent any
 
+    environment {
+        VENV_DIR = 'venv'
+    }
+
     stages {
         stage('Setup') {
             steps {
                 script {
-                    // Open the app and install dependencies
-                    sh "cd app && pip install -r requirements.txt"
+                    // Create VENV and install dependencies
+                    sh "python3 -m venv ${VENV_DIR}"
+                    sh ". ${VENV_DIR}/bin/activate && cd app && pip install -r requirements.txt"
                                     
                 }
             }
@@ -16,7 +21,7 @@ pipeline {
             steps {
                 script {
                     // Run tests using pytest inside the app directory
-                    sh "cd app && pytest"
+                    sh ". ${VENV_DIR}/bin/activate && cd app && pytest"
                 }
             }
         }
