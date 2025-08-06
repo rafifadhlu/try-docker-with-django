@@ -11,7 +11,7 @@ def IndexView(request):
     context = {
         'pageTitle': 'Home Page',
         'title': 'Welcome to My Docker-app',
-        'message': 'Try to add new changes'
+        'message': 'This is a simple docker app with Django',
     }
 
     if request.user.is_authenticated:
@@ -31,6 +31,5 @@ def IndexView(request):
         template_name = 'index.html'
         context['page'] = 'Home unauthenticated'
         context['user'] = None
-        print(settings.SUPABASE_URL)
 
     return render(request, template_name, context)

@@ -4,13 +4,14 @@
 {% include "navbar/navbar-public.html" %} 
 <h1 class="d-flex justify-content-center">Register</h1>
 <div class="container-md w-25 mt-5">
-
-    <form method='POST'>
+  
+  <form method='POST'>
       {% csrf_token %}
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email address</label>
         <input
           type="email"
+          name="email"
           class="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
@@ -22,14 +23,15 @@
       </div>
       <div class="mb-3">
         <label for="inputUsername" class="form-label">Username</label>
-        <input type="text" class="form-control" id="inputUsername" placeholder="Enter your username" />
+        <input type="text" name="username" class="form-control" id="inputUsername" placeholder="Enter your username" />
       </div>
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password" />
+        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password" />
       </div>
       <button type="submit" class="btn btn-primary">Register</button>
     </form>
+
 </div>
 
 {% endblock placeContent %}
