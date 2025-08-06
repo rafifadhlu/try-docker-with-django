@@ -5,8 +5,9 @@ pipeline {
         stage('Setup') {
             steps {
                 script {
-                    // open to the project directory
-                    sh 'cd app'
+                    // Open the app and install dependencies
+                    sh "cd app && pip install -r requirements.txt"
+                                    
                 }
             }
         }
@@ -15,7 +16,7 @@ pipeline {
             steps {
                 script {
                     // Run tests using pytest inside the app directory
-                    sh "pytest"
+                    sh "cd app && pytest"
                 }
             }
         }
